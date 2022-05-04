@@ -1,11 +1,13 @@
+<ion-header [fullscreen]="true"> 
+  <ion-toolbar>
+    <ion-title>
+    Jack's Weather App
+  </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-
-<ion-header [fullscreen]="true">
-
-<ion-toolbar>
-  Jack's Weather App
-</ion-toolbar>
-
+ 
 </ion-header>
 <div class="main">
   <button>-----Refresh Information-----</button>
@@ -20,7 +22,7 @@
   <span class="Date">{{ res.current.dt }}</span>
 
   <div class="icon">
-    <img src="http://openweathermap.org/img/wn{{ res.current.weather[0].icon }}@2x.png" alt="">
+    <img src="http://openweathermap.org/img/wn{{ res.current.weather[0].icon }}@2x.png" alt="Cloud.png">
   </div>
   <span class="description">{{ res.current.weather[0].main }}</span>
   <span class="temperature">{{ res.current.temp | number '1.0-0' }}</span>
