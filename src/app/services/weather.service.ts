@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class WeatherService {
 
   constructor(
@@ -16,7 +18,7 @@ getWeatherData(): Observable<any> {
   let lon = 144.946475;
   let apiId = 'f3fab76f3b38aee27a58964759344562';
   let queryString = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,alerts&appid=${apiId}`;
-
+ 
   return this.http.get(queryString);
 }
 
