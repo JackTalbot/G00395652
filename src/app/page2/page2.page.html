@@ -2,26 +2,26 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-buttons></ion-back-buttons>
-    <ion-title>page2</ion-title>
+    <ion-title>Storage</ion-title>
     <ion-list>
-      <ion-radio-group value="biff">
+      <ion-radio-group [(ngModel)]="myStatus">
         <ion-list-header>
           <ion-label>Name</ion-label>
         </ion-list-header>
     
         <ion-item>
-          <ion-label>Biff</ion-label>
-          <ion-radio slot="start" value="biff"></ion-radio>
+          <ion-label>Happy</ion-label>
+          <ion-radio slot="start" value="happy"></ion-radio>
         </ion-item>
     
         <ion-item>
-          <ion-label>Griff</ion-label>
-          <ion-radio slot="start" value="griff"></ion-radio>
+          <ion-label>Sad</ion-label>
+          <ion-radio slot="start" value="sad"></ion-radio>
         </ion-item>
     
         <ion-item>
-          <ion-label>Buford</ion-label>
-          <ion-radio slot="start" value="buford"></ion-radio>
+          <ion-label>energetic</ion-label>
+          <ion-radio slot="start" value="energetic"></ion-radio>
         </ion-item>
       </ion-radio-group>
     </ion-list>

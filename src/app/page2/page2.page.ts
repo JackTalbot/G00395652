@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page2.page.scss'],
 })
 export class Page2Page implements OnInit {
-
+myStatus: string = "";
   constructor() { }
 
   ngOnInit() {
