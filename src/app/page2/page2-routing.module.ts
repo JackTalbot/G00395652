@@ -5,7 +5,7 @@ import { Page2Page } from './page2.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: '/storage',
     component: Page2Page
   }
 ];

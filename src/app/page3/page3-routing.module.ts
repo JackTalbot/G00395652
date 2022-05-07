@@ -5,7 +5,7 @@ import { Page3Page } from './page3.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'blank',
     component: Page3Page
   }
 ];

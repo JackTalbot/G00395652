@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
       <ion-buttons slot="start">
-      <ion-back-buttons></ion-back-buttons>
+        <ion-back-button></ion-back-button>
       </ion-buttons>
       <ion-title>
         Weather App
@@ -10,15 +10,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
- <div class="main">
+  <ion-button [routerLink]="'calendar'"routerDirection="forward">Page 1</ion-button>
+  <br>
+  <ion-button [routerLink]="'storage'"routerDirection="forward">Page 2</ion-button>
+  <br>
+  <ion-button [routerLink]="'blank'"routerDirection="forward">Page 3</ion-button>
+
+  <div class="main">
    <span class="City">City</span>
    <br>
    <span class="Date">Day, time</span>
    <br>
-   <ion-button (click)="openPage1()">Page 1</ion-button>
-   <hr>
-   <ion-button [routerLink]="['/page']"routerDirection="forward">Page 2</ion-button>
-   <ion-button [routerLink]="['/page']"routerDirection="forward">Page 3</ion-button>
   <div class="icon">
     <img src="../../assets/icon/Cloud.png" alt="">
   </div>
