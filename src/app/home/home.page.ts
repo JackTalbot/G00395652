@@ -8,7 +8,7 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage implements OnInit{
 
-constructor(private navCtrl:NavController){ }
+constructor(private navCtrl:NavController, private storage:Storage){ }
     ngOnInit(): void {
         throw new Error('Method not implemented.');
     }

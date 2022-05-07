@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-page2',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Page2Page implements OnInit {
 myStatus: string = "";
-  constructor() { }
+  constructor(private storage:Storage) { }
 
   ngOnInit() {
   }
 
+  SaveStatus(){
+    this.storage.create().then(()=>{
+      this.storage.set("status", this.myStatus)
+    }).catch();
+  }
 }
