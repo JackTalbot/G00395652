@@ -1,0 +1,55 @@
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('editStoreForm');
+        const location = document.getElementById('location');
+        const mgridInput = document.getElementById('mgridInput');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const store_id = document.getElementById('store_id').value;
+            const location = document.getElementById('location').value;
+            const mgridInput = document.getElementById('mgridInput').value;
+            const data = { store_id, location, mgridInput };
+            fetch('/stores/edit', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+            }).then((responseJSON) => {
+                window.location.href = '/stores';
+            }).catch((err) => {
+                console.log(err);
+            });
+        });
+    });
+</script>
+<form id="editStoreForm" action="/stores/<%= store.sid %>" method="POST">
+    <%- include('../navbar/navbar.ejs') %>
+    
+
+    <%if (typeof error !== 'undefined') {%>
+        <p>
+            <%= error %>
+        </p>
+    <% } %>
+        <div>
+            <label for="store_id">Store ID:</label>
+            <label for="store_id"><%= store.sid %></label>
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" value="<%= store.location %>" required>
+        </div>
+        <div>
+            <label for="mgridInput">Manager ID:</label>
+            <input type="text" id="mgridInput" name="mgridInput" value="<%= store.mgrid %>" required>
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+</form>

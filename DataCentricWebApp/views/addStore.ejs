@@ -1,0 +1,37 @@
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('addStoreForm');
+        const sidInput = document.getElementById('sid');
+        const mgridInput = document.getElementById('mgrid');
+
+        form.addEventListener('submit', (event) => {
+            if (!sidInput.checkValidity()) {
+        e.preventDefault(); // Prevent form submission
+        alert(sidInput.validationMessage);
+      }
+      if (!mgridInput.checkValidity()) {
+        e.preventDefault(); // Prevent form submission
+        alert(mgridInput.validationMessage);
+      }
+    });
+  });
+</script>
+<form id="addStoreForm" action="/stores" method="POST">
+    <%- include('../navbar/navbar.ejs') %>
+    <div>
+        <label for="sid">Store ID:</label>
+        <input type="text" id="sid" name="sid" required>
+    </div>
+    <div>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+    </div>
+    <div>
+        <label for="mgrid">Manager ID:</label>
+        <input type="text" id="mgrid" name="mgrid" required>
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+    <button type="button" value="add">Cancel</button>
+</form>

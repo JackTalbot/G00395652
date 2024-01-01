@@ -1,0 +1,82 @@
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const form = document.getElementById('editManagerForm');
+
+        const mgrid = document.getElementById('mgrid');
+
+        const nameInput = document.getElementById('nameInput');
+
+        const salaryInput = document.getElementById('salaryInput');
+
+        form.addEventListener('submit', (event) => {
+
+            event.preventDefault();
+
+            const mgrid = document.getElementById('mgrid').value;
+
+            const nameInput = document.getElementById('nameInput').value;
+
+            const salaryInput = document.getElementById('salaryInput').value;
+
+            const data = { mgrid, nameInput, salaryInput };
+
+            fetch('/managers/edit', {
+
+                method: 'PUT',
+
+                headers: {
+
+                    'Content-Type': 'application/json'
+
+                },
+
+                body: JSON.stringify(data)
+
+            }).then((response) => {
+
+                if (response.ok) {
+
+                    return response.json();
+
+                }
+
+            }).then((responseJSON) => {
+
+                window.location.href = '/managers';
+
+            }).catch((err) => {
+
+                console.log(err);
+
+            });
+
+        });
+    });
+</script>
+
+<form id="editManagerForm" action="/managers/<%= manager.mgrid %>" method="POST">
+
+    <%- include('../navbar/navbar.ejs') %>
+
+    <%if (typeof error !== 'undefined') {%>
+        <p>
+            <%= error %>
+        </p>
+    <% } %>
+        <div>
+            <label for="mgrid">Manager ID:</label>
+            <label for="mgrid"><%= manager.mgrid %></label>
+        </div>
+        <div>
+            <label for="nameInput">Name:</label>
+            <input type="text" id="nameInput" name="nameInput" value="<%= manager.name %>" required>
+        </div>
+        <div>
+            <label for="salaryInput">Salary:</label>
+            <input type="text" id="salaryInput" name="salaryInput" value="<%= manager.salary %>" required>
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+        <button type="enter">Edit Manager</button>

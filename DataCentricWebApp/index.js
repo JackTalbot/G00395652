@@ -10,12 +10,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const { colorize } = require('./colors.js');
-
 
 //database imports
-var sqlDAO = require('./backEnd/sqlDAO.js');
-var mongoDAO = require('./backEnd/mongoDAO.js');
+var sqlDAO = require('./backEnd/SQLDAO.js');
+var mongoDAO = require('./backEnd/MONGODAO.js');
 const e = require('express');
 
 

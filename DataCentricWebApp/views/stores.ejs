@@ -1,0 +1,24 @@
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Store ID</th>
+            <th>Location</th>
+            <th>Manager ID</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < stores.length; i++) {%>
+            <tr>
+                <td><%= stores[i].store_id %></td>
+                <td><%= stores[i].location %></td>
+                <td><%= stores[i].manager_id %></td>
+                <td>
+                    <a href="/stores/<%= stores[i].store_id %>" class="btn btn-info">View</a>
+                    <a href="/stores/edit/<%= stores[i].store_id %>" class="btn btn-primary">Edit</a>
+                    <a href="/stores/delete/<%= stores[i].store_id %>" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

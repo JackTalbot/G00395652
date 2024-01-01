@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+        <meta charset="UTF-8">
+    
+        <title>Managers</title>
+    
+        <link rel="stylesheet" href="/css/navbar.css">
+    
+        <link rel="stylesheet" href="/css/managers.css">
+    
+        <style>
+    
+            table {
+    
+                border-collapse: collapse;
+    
+                width: 100%;
+    
+                color: #d96459;
+    
+                font-family: monospace;
+    
+                font-size: 25px;
+    
+                text-align: left;
+    
+            }
+    
+            table, th, td {
+    
+                border: 1px solid black;
+    
+                padding: 5px;
+    
+            }
+    
+            th, td {
+    
+                padding: 15px;
+    
+            }
+    
+            th {
+    
+                background-color: white;
+    
+            }
+    
+        </style>
+</head>
+<body>
+    <%include ../navbar/navbar.ejs %>
+    <h1>Managers:</h1>
+    <table>
+        <thread>
+            <tr>
+                <th>Manager ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Store ID</th>
+                <th>Actions</th>
+            </tr>
+        </thread>
+    
+    <tbody>
+        <% managers.forEach(function(manager) { %>
+        <tr>
+            <td><%= manager.manager_id %></td>
+            <td><%= manager.first_name %></td>
+            <td><%= manager.last_name %></td>
+            <td><%= manager.store_id %></td>
+            <td>
+                <a href="/managers/<%= manager.manager_id %>" class="btn btn-info">View</a>
+                <a href="/managers/edit/<%= manager.manager_id %>" class="btn btn-primary">Edit</a>
+                <a href="/managers/delete/<%= manager.manager_id %>" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        <% }) %>
+    </tbody>
+    </table>
+    <br>
+    <a href="/managers/add" class="btn btn-success">Add Manager</a>
+</body>
+</html>
