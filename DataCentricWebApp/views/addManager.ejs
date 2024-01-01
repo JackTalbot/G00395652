@@ -19,30 +19,34 @@
   });
 </script>
 <form id="addManagerForm" action="/managers/add" method="POST">
+    <!-- This file represents the view for adding a manager in the web application. -->
+
     <%- include('partials/navbar') %>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
     <%- include('../navbar/navbar.ejs') %>
 
+    <!-- Display an error message if it exists -->
     <% if (typeof error !=='undefined' ) { %>
         <p>
-          <%= error %>
+            <%= error %>
         </p>
-        <% } %>
-          <div>
-            <label for="_id">Manager ID:</label>
-            <input input type="text" id="mgrid" name="mgrid" pattern=".{1,4}"
-              title="Manager ID must be 1 to 4 characters long" required>
-          </div>
-          <div>
-            <label for="name">Manager Name:</label>
-            <input type="text" id="name" name="name" minlength="6" title="Name must be at least 6 characters long"
-              required>
-          </div>
-          <div>
-            <label for="salary">Manager Salary:</label>
-            <input type="number" id="salary" name="salary" min="30000" max="70000"
-              title="Salary must be between 30,000 and 70,000" required>
-          </div>
+    <% } %>
+
+    <!-- Form for adding a new manager -->
+    <div>
+        <label for="_id">Manager ID:</label>
+        <input input type="text" id="mgrid" name="mgrid" pattern=".{1,4}"
+            title="Manager ID must be 1 to 4 characters long" required>
+    </div>
+    <div>
+        <label for="name">Manager Name:</label>
+        <input type="text" id="name" name="name" minlength="6" title="Name must be at least 6 characters long"
+            required>
+    </div>
+    <div>
+        <label for="salary">Manager Salary:</label>
+        <input type="number" id="salary" name="salary" min="30000" max="70000"
+            title="Salary must be between 30,000 and 70,000" required>
+    </div>
     <button type="button" value="add">Cancel</button>

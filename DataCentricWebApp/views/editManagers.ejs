@@ -61,21 +61,32 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js">
     </script>
+    <!-- FILEPATH: /c:/Users/Jack Talbot/OneDrive/Documents/G00395652/DataCentricWebApp/views/editManagers.ejs -->
+
+    <!-- This section displays an error message if it exists -->
     <% if (typeof error !=='undefined' ) { %>
       <p>
         <%= error %>
       </p>
-      <% } %>
-        <div>
-          <label for="_id">Manager ID:</label>
-          <input type="text" id="_id" name="mgrid" min="4" max="4" value="<%= manager._id %>" readonly>
-        </div>
-        <div>
-          <label for="name">Manager Name:</label>
-          <input type="text" id="name" name="name" min="6" value="<%= manager.name %>" required>
-        </div>
-        <div>
-          <label for="salary">Manager Salary:</label>
-          <input type="number" id="salary" name="salary" min="30000" max="70000" value="<%= manager.salary %>" required>
-        </div>
-        <button type="enter">Edit Manager</button>
+    <% } %>
+
+    <!-- This section allows the user to edit the manager's ID -->
+    <div>
+      <label for="_id">Manager ID:</label>
+      <input type="text" id="_id" name="mgrid" min="4" max="4" value="<%= manager._id %>" readonly>
+    </div>
+
+    <!-- This section allows the user to edit the manager's name -->
+    <div>
+      <label for="name">Manager Name:</label>
+      <input type="text" id="name" name="name" min="6" value="<%= manager.name %>" required>
+    </div>
+
+    <!-- This section allows the user to edit the manager's salary -->
+    <div>
+      <label for="salary">Manager Salary:</label>
+      <input type="number" id="salary" name="salary" min="30000" max="70000" value="<%= manager.salary %>" required>
+    </div>
+
+    <!-- This button allows the user to submit the edited manager details -->
+    <button type="enter">Edit Manager</button>

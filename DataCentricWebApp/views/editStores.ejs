@@ -1,3 +1,4 @@
+<!-- JavaScript code to handle form submission -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const form = document.getElementById('editStoreForm');
@@ -10,6 +11,8 @@
             const location = document.getElementById('location').value;
             const mgridInput = document.getElementById('mgridInput').value;
             const data = { store_id, location, mgridInput };
+            
+            // Send a PUT request to update the store data
             fetch('/stores/edit', {
                 method: 'PUT',
                 headers: {
@@ -21,6 +24,7 @@
                     return response.json();
                 }
             }).then((responseJSON) => {
+                // Redirect to the stores page after successful update
                 window.location.href = '/stores';
             }).catch((err) => {
                 console.log(err);
@@ -28,26 +32,31 @@
         });
     });
 </script>
+
+<!-- HTML form to edit store information -->
 <form id="editStoreForm" action="/stores/<%= store.sid %>" method="POST">
     <%- include('../navbar/navbar.ejs') %>
     
-
     <%if (typeof error !== 'undefined') {%>
         <p>
             <%= error %>
         </p>
     <% } %>
+    
     <div>
         <label for="sid">Store ID:</label>
         <input type="text" id="sid" name="sid" value="<%= store.sid %>" readonly>
-      </div>
-      <div>
+    </div>
+    
+    <div>
         <label for="location">Store Location:</label>
         <input type="text" id="location" name="location" min="1" value="<%= store.location %>" required>
-      </div>
-      <div>
+    </div>
+    
+    <div>
         <label for="mgrid">Manager ID:</label>
         <input type="text" id="mgrid" name="mgrid" min="4" max="4" value="<%= store.mgrid %>" required>
-      </div>
-      <button type="submit">Update Store</button>
+    </div>
+    
+    <button type="submit">Update Store</button>
 </form>
