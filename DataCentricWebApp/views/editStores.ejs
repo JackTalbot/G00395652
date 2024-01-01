@@ -37,19 +37,17 @@
             <%= error %>
         </p>
     <% } %>
-        <div>
-            <label for="store_id">Store ID:</label>
-            <label for="store_id"><%= store.sid %></label>
-        </div>
-        <div>
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location" value="<%= store.location %>" required>
-        </div>
-        <div>
-            <label for="mgridInput">Manager ID:</label>
-            <input type="text" id="mgridInput" name="mgridInput" value="<%= store.mgrid %>" required>
-        </div>
-        <div>
-            <input type="submit" value="Submit">
-        </div>
+    <div>
+        <label for="sid">Store ID:</label>
+        <input type="text" id="sid" name="sid" value="<%= store.sid %>" readonly>
+      </div>
+      <div>
+        <label for="location">Store Location:</label>
+        <input type="text" id="location" name="location" min="1" value="<%= store.location %>" required>
+      </div>
+      <div>
+        <label for="mgrid">Manager ID:</label>
+        <input type="text" id="mgrid" name="mgrid" min="4" max="4" value="<%= store.mgrid %>" required>
+      </div>
+      <button type="submit">Update Store</button>
 </form>

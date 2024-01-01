@@ -17,21 +17,26 @@
   });
 </script>
 <form id="addStoreForm" action="/stores" method="POST">
-    <%- include('../navbar/navbar.ejs') %>
-    <div>
-        <label for="sid">Store ID:</label>
-        <input type="text" id="sid" name="sid" required>
-    </div>
-    <div>
-        <label for="location">Location:</label>
-        <input type="text" id="location" name="location" required>
-    </div>
-    <div>
-        <label for="mgrid">Manager ID:</label>
-        <input type="text" id="mgrid" name="mgrid" required>
-    </div>
-    <div>
-        <input type="submit" value="Submit">
-    </div>
-    <button type="button" value="add">Cancel</button>
+    <%- include('partials/navbar') %>
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
+    <% if (typeof error !=='undefined' ) { %>
+      <p>
+        <%= error %>
+      </p>
+      <% } %>
+        <div>
+          <label for="sid">Store ID:</label>
+          <input type="text" name="sid" required>
+        </div>
+        <div>
+          <label for="location">Store Location:</label>
+          <input type="text" name="location" min="1" required>
+        </div>
+        <div>
+          <label for="mgrid">Manager ID:</label>
+          <input type="text" name="mgrid" min="4" max="4" required>
+        </div>
+        <button type="submit" value="Add">Add Store</button>
 </form>
